@@ -43,15 +43,18 @@ export default class PlayerSearch extends Component {
     })
 
     return(
-      <div className="thumbnail">
-        <h3 className="text-center">Player</h3>
-        <Typeahead
-          filterOption='name'
-          displayOption={this.displayOption}
-          options={this.renderOptions()}
-          onOptionSelected={this.pickedPlayer}
-        />
-        <br/>
+      <div>
+        <div className="col-md-6">
+          <h2 className="text-center">Player</h2>
+          <Typeahead
+            filterOption='name'
+            displayOption={this.displayOption}
+            options={this.renderOptions()}
+            onOptionSelected={this.pickedPlayer}
+          />
+          <br/>
+
+        </div>
         <h1>{this.props.player.name}</h1>
         <h2>{this.props.player.team.name}</h2>
         <ul>{events}</ul>

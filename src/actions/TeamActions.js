@@ -2,7 +2,7 @@ import alt from '../lib/alt';
 
 class TeamActions {
   constructor() {
-    this.generateActions('get')
+    this.generateActions('get', 'getTeam')
   }
 }
 

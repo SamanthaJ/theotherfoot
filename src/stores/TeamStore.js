@@ -8,6 +8,7 @@ class TeamStore {
     this.bindActions(TeamActions)
     this.state = {
       teams: [],
+      team: []
     }
   }
 
@@ -18,6 +19,18 @@ class TeamStore {
     .then(function (response) {
       console.log(response);
       self.setState({teams: response.data})
+    })
+    .catch(function (response) {
+      console.log(response);
+    });
+  }
+
+  getTeam(id) {
+    let self = this;
+    return axios.get(`http://localhost:3000/api/v1/teams/${id}`)
+    .then(function (response) {
+      console.log(response);
+      self.setState({team: response.data})
     })
     .catch(function (response) {
       console.log(response);

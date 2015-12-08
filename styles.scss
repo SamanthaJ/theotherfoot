@@ -1,34 +1,32 @@
-* {
+body {
+  padding-top: 60px;
+ }
 
-}
-
-.container {
-  margin-top: 2%;
-/*  background-color: #313150;
-*/}
-
-.jumbotron {
+nav, .navbar,  {
+  font-family:  Syncopate;
+  background-color: #55cca2;
   color: #fff;
-  background-color: #e00034;
-  box-shadow: 0 0 5px rgba(0,0,0,.2);
-  border-radius: 0px;
-  font-family: Syncopate;
-  min-height: 175px;
-  .text {
-    font-size: 15px;
-    font-weight: 700;
-  }
+  border-bottom: 2px solid #296650;
+  height: 40px;
+  min-height: 40px;
 }
 
-.thumbnail {
-  background-color: #313150;
-  color: #666;
-  h3 { color: #fff; }
-  min-height: 175px;
+
+ul {
+  list-style: none;
+  a { color: #666;}
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+  border-radius: 6px;
 }
 
-.section1 {
-  font-family: 'Hind Siliguri', sans-serif;
+textarea, input {
+  width: 100%;
+  border-radius: 4px;
+  height: 40px;
+  font-size: 25px;
 }
 
-.title { font-size: 30px;}
+hr, h4 { margin-bottom: 0px;
+}
+
+h2 { font-weight: lighter; }
