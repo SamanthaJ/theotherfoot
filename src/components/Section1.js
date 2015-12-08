@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react'  
 import TeamSearch from './TeamSearch';
 import PlayerSearch from './PlayerSearch';
 import EventSearch from './EventSearch';

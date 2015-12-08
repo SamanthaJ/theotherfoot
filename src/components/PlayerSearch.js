@@ -5,7 +5,7 @@ import connectToStores from 'alt/utils/connectToStores'
 import PlayerActions from '../actions/PlayerActions'
 
 @connectToStores
-export default class TeamSearch extends Component {
+export default class PlayerSearch extends Component {
   static getStores(props) {
     PlayerActions.get();
     return [PlayerStore];
@@ -14,21 +14,47 @@ export default class TeamSearch extends Component {
     return PlayerStore.getState();
   }
 
+  renderOptions() {
+    return this.props.players.map(player => {
+      return player;
+    });
+  }
+
+  displayOption(option) {
+    return option.name;
+  }
+
+  pickedPlayer(player) {
+    // alert(player.id);
+    PlayerActions.getPlayer(player.id);
+    //Psuedo
+    // player.id is the variable
+    // axios.get(localhost:3000/player/player.id)
+  }
+
   render() {
 
-    const PLAYERS = this.props.players.map(player => {
+    let PLAYERS = this.props.players.map(player => {
       return <option key={player.id} value={player.id}>{player.name}</option>
+    })
+
+    let events = this.props.player.events.map(event => {
+      return <li key={event.id}>1 {event.event_type} - {event.date}</li>
     })
 
     return(
       <div className="thumbnail">
         <h3 className="text-center">Player</h3>
-        <select className="form-control text-center">
-          <option value="">Select a player</option>
-          {PLAYERS}
-        </select>
+        <Typeahead
+          filterOption='name'
+          displayOption={this.displayOption}
+          options={this.renderOptions()}
+          onOptionSelected={this.pickedPlayer}
+        />
         <br/>
-        <button className="btn col-md-8 col-md-offset-2 btn-primary">SEARCH</button>
+        <h1>{this.props.player.name}</h1>
+        <h2>{this.props.player.team.name}</h2>
+        <ul>{events}</ul>
       </div>
     );
   }
