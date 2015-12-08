@@ -1,31 +1,30 @@
 import React, { Component } from 'react'
-import { Typeahead } from 'react-typeahead'
-import PlayerStore from '../stores/PlayerStore'
+import EventStore from '../stores/EventStore'
 import connectToStores from 'alt/utils/connectToStores'
-import PlayerActions from '../actions/PlayerActions'
+import EventActions from '../actions/EventActions'
 
 @connectToStores
 export default class TeamSearch extends Component {
   static getStores(props) {
-    PlayerActions.get();
-    return [PlayerStore];
+    EventActions.get();
+    return [EventStore];
   }
   static getPropsFromStores(props) {
-    return PlayerStore.getState();
+    return EventStore.getState();
   }
 
   render() {
 
-    const PLAYERS = this.props.players.map(player => {
-      return <option key={player.id} value={player.id}>{player.name}</option>
+    const EVENTS = this.props.events.map(event => {
+      return <option key={event.id} value={event.id}>{event.date}</option>
     })
 
     return(
       <div className="thumbnail">
-        <h3 className="text-center">Player</h3>
+        <h3 className="text-center">Date</h3>
         <select className="form-control text-center">
-          <option value="">Select a player</option>
-          {PLAYERS}
+          <option value="">Select a date to search by</option>
+          {EVENTS}
         </select>
         <br/>
         <button className="btn col-md-8 col-md-offset-2 btn-primary">SEARCH</button>

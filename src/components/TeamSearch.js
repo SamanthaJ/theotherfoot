@@ -1,35 +1,35 @@
 import React, { Component } from 'react'
 import { Typeahead } from 'react-typeahead'
-import TeamsStore from '../stores/TeamsStore'
+import TeamStore from '../stores/TeamStore'
 import connectToStores from 'alt/utils/connectToStores'
-import TeamsActions from '../actions/TeamsActions'
+import TeamActions from '../actions/TeamActions'
 
 @connectToStores
 export default class TeamSearch extends Component {
   static getStores(props) {
-    TeamsActions.get();
-    return [TeamsStore];
+    TeamActions.get();
+    return [TeamStore];
   }
   static getPropsFromStores(props) {
-    return TeamsStore.getState();
+    return TeamStore.getState();
   }
 
   render() {
+
+    const TEAMS = this.props.teams.map(team => {
+      return <option key={team.id} value={team.id}>{team.name}</option>
+    })
+
     return(
       <div className="thumbnail">
         <h3 className="text-center">Team</h3>
-        <div className="input-group">
-          <Typeahead
-            options={['John', 'Paul', 'George', 'Ringo']}
-            maxVisible={2}
-          />
-          <select className="form-control">
-              <option value="">Select a store to publish to</option>
-              {this.props.teams.map(team => {
-                return <option key={team.id} value={team.id}>{team.name}</option>
-              })}
-            </select>
-        </div>
+
+        <select className="form-control text-center">
+          <option value="">Select a team</option>
+          {TEAMS}
+        </select>
+        <br/>
+        <button className="btn col-md-8 col-md-offset-2 btn-primary">SEARCH</button>
       </div>
     );
   }

@@ -1,11 +1,11 @@
 import alt from '../lib/alt'
 import axios from 'axios'
-import TeamsActions from '../actions/TeamsActions'
+import TeamActions from '../actions/TeamActions'
 
 
-class TeamsStore {
+class TeamStore {
   constructor() {
-    this.bindActions(TeamsActions)
+    this.bindActions(TeamActions)
     this.state = {
       teams: [],
     }
@@ -27,4 +27,4 @@ class TeamsStore {
 
 
 
-export default alt.createStore(TeamsStore, 'TeamsStore')
+export default alt.createStore(TeamStore, 'TeamStore')

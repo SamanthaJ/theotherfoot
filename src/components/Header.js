@@ -6,8 +6,8 @@ export default class Header extends Component {
     return (
       <div>
         <div className="jumbotron">
-          <span className="title">The Other Foot</span>
-          <span className="text pull-right text-center">your searchable, filterable, source for <br/>all things british football</span>
+          <div className="title text-center col-md-5">The Other Foot</div>
+          <div className="text col-md-7 text-center">your searchable, filterable, source for <br/>all things british football<br/><br/>For the monthof October, 2015</div>
         </div>
       </div>
     );

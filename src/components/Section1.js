@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import TeamSearch from './TeamSearch';
+import PlayerSearch from './PlayerSearch';
+import EventSearch from './EventSearch';
 
 export default class Section1 extends Component{
   render(){
@@ -11,14 +13,10 @@ export default class Section1 extends Component{
           <TeamSearch/>
         </div>
         <div className="col-md-4">
-          <div className="thumbnail">
-            <h3 className="text-center">Player</h3>
-          </div>
+          <PlayerSearch/>
         </div>
         <div className="col-md-4">
-          <div className="thumbnail">
-            <h3 className="text-center">Date</h3>
-          </div>
+          <EventSearch/>
         </div>
       </div>
     );

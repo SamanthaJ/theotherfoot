@@ -1,9 +1,9 @@
 import alt from '../lib/alt';
 
-class TeamsActions {
+class PlayerActions {
   constructor() {
     this.generateActions('get')
   }
 }
 
-export default alt.createActions(TeamsActions)
+export default alt.createActions(PlayerActions)
