@@ -1,15 +1,25 @@
-import React, { Component } from 'react'
-import { Typeahead } from 'react-typeahead'
-import PlayerStore from '../stores/PlayerStore'
-import connectToStores from 'alt/utils/connectToStores'
-import PlayerActions from '../actions/PlayerActions'
+import React, { Component } from 'react';
+import { Typeahead } from 'react-typeahead';
+import PlayerStore from '../stores/PlayerStore';
+import connectToStores from 'alt/utils/connectToStores';
+import PlayerActions from '../actions/PlayerActions';
+import SelectedPlayer from './SelectedPlayer';
+import TeamActions from '../actions/TeamActions';
+
 
 @connectToStores
 export default class PlayerSearch extends Component {
+  constructor(props) {
+    super(props)
+
+    this.onPickedPlayer = this.onPickedPlayer.bind(this);
+  }
+
   static getStores(props) {
     PlayerActions.get();
     return [PlayerStore];
   }
+
   static getPropsFromStores(props) {
     return PlayerStore.getState();
   }
@@ -24,24 +34,13 @@ export default class PlayerSearch extends Component {
     return option.name;
   }
 
-  pickedPlayer(player) {
-    // alert(player.id);
+  onPickedPlayer(player) {
+    PlayerActions.pickedPlayer(true);
+    TeamActions.pickedTeam(false);
     PlayerActions.getPlayer(player.id);
-    //Psuedo
-    // player.id is the variable
-    // axios.get(localhost:3000/player/player.id)
   }
 
   render() {
-
-    let PLAYERS = this.props.players.map(player => {
-      return <option key={player.id} value={player.id}>{player.name}</option>
-    })
-
-    let events = this.props.player.events.map(event => {
-      return <li key={event.id}>1 {event.event_type} - {event.date}</li>
-    })
-
     return(
       <div>
         <div className="col-md-6">
@@ -50,14 +49,9 @@ export default class PlayerSearch extends Component {
             filterOption='name'
             displayOption={this.displayOption}
             options={this.renderOptions()}
-            onOptionSelected={this.pickedPlayer}
+            onOptionSelected={this.onPickedPlayer}
           />
-          <br/>
-
         </div>
-        <h1>{this.props.player.name}</h1>
-        <h2>{this.props.player.team.name}</h2>
-        <ul>{events}</ul>
       </div>
     );
   }

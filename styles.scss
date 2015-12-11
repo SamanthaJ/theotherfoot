@@ -9,14 +9,18 @@ nav, .navbar,  {
   border-bottom: 2px solid #296650;
   height: 40px;
   min-height: 40px;
+  opacity: .95;
+  ul {
+  padding:  15px 15px;
+  }
 }
 
 
 ul {
   list-style: none;
   a { color: #666;}
-  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
   border-radius: 6px;
+  padding-left: 0px;
 }
 
 textarea, input {

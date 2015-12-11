@@ -58,6 +58,7 @@
     "react": "^0.14.0",
     "react-calendar-component": "^1.0.0",
     "react-dom": "^0.14.0",
-    "react-typeahead": "^1.1.5"
+    "react-typeahead": "^1.1.5",
+    "react-typist": "^0.3.0"
   }
 }

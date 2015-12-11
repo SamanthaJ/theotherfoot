@@ -2,7 +2,7 @@ import alt from '../lib/alt';
 
 class PlayerActions {
   constructor() {
-    this.generateActions('get', 'getPlayer')
+    this.generateActions('get', 'getPlayer', 'pickedPlayer')
   }
 }
 

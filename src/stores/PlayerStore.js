@@ -1,12 +1,13 @@
-import alt from '../lib/alt'
-import axios from 'axios'
-import PlayerActions from '../actions/PlayerActions'
+import alt from '../lib/alt';
+import axios from 'axios';
+import PlayerActions from '../actions/PlayerActions';
 
 
 class PlayerStore {
   constructor() {
     this.bindActions(PlayerActions)
     this.state = {
+      pickedPlayer: false,
       players: [],
       player: {
         events: [],
@@ -41,6 +42,10 @@ class PlayerStore {
     .catch(function (response) {
       console.log(response);
     });
+  }
+
+  pickedPlayer(value) {
+    this.setState({pickedPlayer: value});
   }
 }
 

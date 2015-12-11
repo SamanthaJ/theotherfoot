@@ -1,6 +1,6 @@
-import alt from '../lib/alt'
-import axios from 'axios'
-import TeamActions from '../actions/TeamActions'
+import alt from '../lib/alt';
+import axios from 'axios';
+import TeamActions from '../actions/TeamActions';
 
 
 class TeamStore {
@@ -8,10 +8,13 @@ class TeamStore {
     this.bindActions(TeamActions)
     this.state = {
       teams: [],
-      team: []
+      pickedTeam: false,
+      team: {
+        events: [],
+        players: []
+      }
     }
   }
-
 
   get() {
     let self = this;
@@ -36,8 +39,11 @@ class TeamStore {
       console.log(response);
     });
   }
+
+  pickedTeam(value) {
+    console.log(value)
+    this.setState({pickedTeam: value});
+  }
 }
-
-
 
 export default alt.createStore(TeamStore, 'TeamStore')
