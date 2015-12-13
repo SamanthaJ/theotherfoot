@@ -21,7 +21,7 @@ class PlayerStore {
 
   get() {
     let self = this;
-    return axios.get('http://localhost:3000/api/v1/players')
+    return axios.get('http://footstats-api.herokuapp.com/api/v1/players')
     .then(function (response) {
       console.log(response);
       self.setState({players: response.data})
@@ -33,7 +33,7 @@ class PlayerStore {
 
   getPlayer(id) {
     let self = this;
-    return axios.get(`http://localhost:3000/api/v1/players/${id}`)
+    return axios.get(`http://footstats-api.herokuapp.com/api/v1/players/${id}`)
     .then(function (response) {
       console.log(response);
       self.setState({player: response.data})
