@@ -2,7 +2,6 @@ import alt from '../lib/alt'
 import axios from 'axios'
 import EventActions from '../actions/EventActions'
 
-
 class EventStore {
   constructor() {
     this.bindActions(EventActions)
@@ -10,7 +9,6 @@ class EventStore {
       events: [],
     }
   }
-
 
   get() {
     let self = this;
@@ -24,7 +22,5 @@ class EventStore {
     });
   }
 }
-
-
 
 export default alt.createStore(EventStore, 'EventStore')

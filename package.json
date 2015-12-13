@@ -53,10 +53,14 @@
   "dependencies": {
     "alt": "^0.17.9",
     "axios": "^0.7.0",
+    "chart.js": "^1.0.2",
+    "chartjs": "^0.2.5",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "react": "^0.14.0",
+    "react-addons-css-transition-group": "^0.14.3",
     "react-calendar-component": "^1.0.0",
+    "react-chartjs": "^0.6.0",
     "react-dom": "^0.14.0",
     "react-typeahead": "^1.1.5",
     "react-typist": "^0.3.0"

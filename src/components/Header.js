@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Typist from 'react-typist';
 
-
 export default class Header extends Component {
   render() {
     return (
@@ -12,9 +11,6 @@ export default class Header extends Component {
               <div className="navbar-header">
                 <div className="navbar-brand">The Other Foot</div>
               </div>
-              <ul className="nav navbar-nav navbar-right">
-                <li>Your source for all things BPL</li>
-              </ul>
             </Typist>
           </div>
         </nav>
@@ -22,5 +18,3 @@ export default class Header extends Component {
     );
   }
 }
-
- // <img src="./images/ball.png"/>

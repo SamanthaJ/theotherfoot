@@ -19,7 +19,6 @@ class PlayerStore {
     }
   }
 
-
   get() {
     let self = this;
     return axios.get('http://localhost:3000/api/v1/players')
@@ -48,7 +47,5 @@ class PlayerStore {
     this.setState({pickedPlayer: value});
   }
 }
-
-
 
 export default alt.createStore(PlayerStore, 'PlayerStore')

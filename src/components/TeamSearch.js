@@ -18,6 +18,7 @@ export default class TeamSearch extends Component {
     TeamActions.get();
     return [TeamStore];
   }
+
   static getPropsFromStores(props) {
     return TeamStore.getState();
   }
@@ -37,12 +38,11 @@ export default class TeamSearch extends Component {
     PlayerActions.pickedPlayer(false);
     TeamActions.getTeam(team.id);
   }
-
+  
   render() {
-
     return(
       <div>
-        <div className="col-md-6">
+        <div className="col-md-8 col-md-offset-2">
           <h2 className="text-center">Team</h2>
           <Typeahead
             filterOption='name'

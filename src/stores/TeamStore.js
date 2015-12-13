@@ -2,7 +2,6 @@ import alt from '../lib/alt';
 import axios from 'axios';
 import TeamActions from '../actions/TeamActions';
 
-
 class TeamStore {
   constructor() {
     this.bindActions(TeamActions)
@@ -21,10 +20,7 @@ class TeamStore {
     return axios.get('http://localhost:3000/api/v1/teams.json')
     .then(function (response) {
       console.log(response);
-      self.setState({teams: response.data})
-    })
-    .catch(function (response) {
-      console.log(response);
+      self.setState({teams: response.data});
     });
   }
 
@@ -33,10 +29,7 @@ class TeamStore {
     return axios.get(`http://localhost:3000/api/v1/teams/${id}`)
     .then(function (response) {
       console.log(response);
-      self.setState({team: response.data})
-    })
-    .catch(function (response) {
-      console.log(response);
+      self.setState({team: response.data});
     });
   }
 

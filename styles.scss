@@ -2,7 +2,7 @@ body {
   padding-top: 60px;
  }
 
-nav, .navbar,  {
+.navbar {
   font-family:  Syncopate;
   background-color: #55cca2;
   color: #fff;
@@ -10,17 +10,39 @@ nav, .navbar,  {
   height: 40px;
   min-height: 40px;
   opacity: .95;
-  ul {
-  padding:  15px 15px;
-  }
 }
 
+.players {
+  margin-top: 1%;
+}
+
+canvas {
+  width: 100%;
+}
+.example-enter {
+  max-height: 0px;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  max-height: 0px;;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
 
 ul {
   list-style: none;
   a { color: #666;}
   border-radius: 6px;
   padding-left: 0px;
+  font-size: 20px;
 }
 
 textarea, input {
@@ -31,6 +53,13 @@ textarea, input {
 }
 
 hr, h4 { margin-bottom: 0px;
+}
+
+.events {
+  h4{
+    padding-left: 50px;
+    margin-bottom: 10px;
+  }
 }
 
 h2 { font-weight: lighter; }
