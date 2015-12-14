@@ -38,7 +38,7 @@ export default class TeamSearch extends Component {
     PlayerActions.pickedPlayer(false);
     TeamActions.getTeam(team.id);
   }
-  
+
   render() {
     return(
       <div>

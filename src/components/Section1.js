@@ -7,10 +7,16 @@ import connectToStores from 'alt/utils/connectToStores';
 import TeamStore from '../stores/TeamStore';
 import TeamActions from '../actions/TeamActions';
 import PlayerStore from '../stores/PlayerStore';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 @connectToStores
 export default class Section1 extends Component{
+  constructor(props) {
+    super();
+
+    this.getClass = this.getClass.bind(this);
+  }
+
   static getStores(props) {
     TeamActions.get();
     return [
@@ -25,13 +31,21 @@ export default class Section1 extends Component{
     }
   }
 
+  getClass() {
+    if (this.props.pickedTeam) {
+      return "text-center hero slideUp";
+    } else {
+      return "text-center hero";
+    }
+  }
+
   render(){
     return (
       <div className="section1">
-      <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-        {!this.props.pickedTeam && <h2 className="text-center">Football stats for the EPL...for the month of October.<br/><br/> </h2>}
-      </ReactCSSTransitionGroup>
-
+        <div className={this.getClass()}>
+          <h2> Football stats for the EPL...for the month of October. </h2>
+          <img src="http://highlandbar.com/static/img/sport1/05-Premier%20League%20Soccer.png" />
+        </div>
         <h4 className="text-center col-md-6 col-md-offset-3">Search by<hr/></h4>
         <TeamSearch/>
         {this.props.pickedTeam && <SelectedTeam/>}

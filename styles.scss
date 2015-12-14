@@ -19,28 +19,26 @@ body {
 canvas {
   width: 100%;
 }
-.example-enter {
+
+.hero {
+  min-height: 40vh;
+  overflow-y: hidden;
+  transition-property: all;
+  transition-duration: 2.5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.hero.slideUp {
+  opacity: .5;
   max-height: 0px;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-  max-height: 0px;;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  min-height: 0px;
+  margin: 0px;
 }
 
 ul {
   list-style: none;
   a { color: #666;}
-  border-radius: 6px;
+  // border-radius: 6px;
   padding-left: 0px;
   font-size: 20px;
 }
@@ -50,6 +48,27 @@ textarea, input {
   border-radius: 4px;
   height: 40px;
   font-size: 25px;
+}
+
+.topcoat-list__container {
+  border: 1px solid #aeaeae;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  box-shadow: 1px 1px 5px #666;
+}
+
+.topcoat-list__item {
+  border-top: 1px solid #aeaeae;
+  border-bottom: 1px solid #aeaeae;
+  padding: 9px;
+  &:hover {
+    cursor: pointer;
+    background-color: #55cca2;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
 
 hr, h4 { margin-bottom: 0px;

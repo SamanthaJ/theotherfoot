@@ -12,12 +12,13 @@ export default class SelectedTeam extends Component{
     super();
 
     this.formattedData = this.formattedData.bind(this);
+    this.displayRedCards = this.displayRedCards.bind(this);
   }
 
   static getStores(props) {
     return [TeamStore];
   }
-  
+
   static getPropsFromStores(props) {
     return TeamStore.getState();
   }
@@ -36,6 +37,22 @@ export default class SelectedTeam extends Component{
           label: player.name
         }
       });
+    } else {
+      return {}
+    }
+  }
+
+  displayRedCards() {
+    if (this.props.team.players) {
+      let formattedData = this.formattedData("Red cards");
+      let hasCards = formattedData.map( data => data.value ).reduce( (sum, val) => {
+        sum + val
+      }, []);
+      if (hasCards) {
+        return <Pie data={formattedData} redraw/>;
+      } else {
+        return <h1>None</h1>;
+      }
     } else {
       return {}
     }
@@ -70,7 +87,7 @@ export default class SelectedTeam extends Component{
             </div>
             <div className="col-sm-6">
               <h4>Red Cards</h4>
-              <Pie data={this.formattedData("Red cards")} redraw/>
+              {this.displayRedCards()}
             </div>
           </div>
         </div>
