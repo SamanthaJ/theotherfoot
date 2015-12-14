@@ -43,8 +43,8 @@ export default class Section1 extends Component{
     return (
       <div className="section1">
         <div className={this.getClass()}>
-          <h2> Football stats for the EPL...for the month of October. </h2>
-          <img src="http://highlandbar.com/static/img/sport1/05-Premier%20League%20Soccer.png" />
+          <h2 className="col-md-12"> Football stats for the EPL...for the month of October. </h2>
+          <img className="col-md-6 col-md-offset-3" src="http://highlandbar.com/static/img/sport1/05-Premier%20League%20Soccer.png" />
         </div>
         <h4 className="text-center col-md-6 col-md-offset-3">Search by<hr/></h4>
         <TeamSearch/>
