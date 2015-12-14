@@ -23,24 +23,16 @@ class PlayerStore {
     let self = this;
     return axios.get('http://footstats-api.herokuapp.com/api/v1/players')
     .then(function (response) {
-      console.log(response);
       self.setState({players: response.data})
     })
-    .catch(function (response) {
-      console.log(response);
-    });
   }
 
   getPlayer(id) {
     let self = this;
     return axios.get(`http://footstats-api.herokuapp.com/api/v1/players/${id}`)
     .then(function (response) {
-      console.log(response);
       self.setState({player: response.data})
     })
-    .catch(function (response) {
-      console.log(response);
-    });
   }
 
   pickedPlayer(value) {

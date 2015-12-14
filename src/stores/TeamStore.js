@@ -19,7 +19,6 @@ class TeamStore {
     let self = this;
     return axios.get('http://footstats-api.herokuapp.com/api/v1/teams.json')
     .then(function (response) {
-      console.log(response);
       self.setState({teams: response.data});
     });
   }
@@ -28,13 +27,11 @@ class TeamStore {
     let self = this;
     return axios.get(`http://footstats-api.herokuapp.com/api/v1/teams/${id}`)
     .then(function (response) {
-      console.log(response);
       self.setState({team: response.data});
     });
   }
 
   pickedTeam(value) {
-    console.log(value)
     this.setState({pickedTeam: value});
   }
 }

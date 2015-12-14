@@ -14,12 +14,8 @@ class EventStore {
     let self = this;
     return axios.get('http://footstats-api.herokuapp.com/api/v1/events')
     .then(function (response) {
-      console.log(response);
       self.setState({events: response.data})
     })
-    .catch(function (response) {
-      console.log(response);
-    });
   }
 }
 

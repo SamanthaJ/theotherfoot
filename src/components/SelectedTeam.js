@@ -24,7 +24,6 @@ export default class SelectedTeam extends Component{
   }
 
   formattedData(eventType) {
-    console.log(COLORS);
     if (this.props.team.players) {
       return this.props.team.players.map( (player, i) => {
         return {
